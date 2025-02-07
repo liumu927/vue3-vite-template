@@ -8,6 +8,7 @@
 ### npm run build 
 
 ## 项目基础结构树：
+```
 vue3-vite-template/
 ├── .env.dev # 开发环境配置文件
 ├── .env.prod # 生产环境配置文件
@@ -53,20 +54,22 @@ vue3-vite-template/
 ├── tsconfig.json # TypeScript 配置文件
 ├── tsconfig.node.json # TypeScript Node 配置文件
 └── vite.config.ts # Vite 配置文件
+```
 
 ## 项目创建流程：
 ### 创建一个基于TypeScript的Vue 3项目
-npm create vite@latest vue3-vite-template -- --template vue-ts
-cd vue3-vite-template
-npm install
+- npm create vite@latest vue3-vite-template -- --template vue-ts
+- cd vue3-vite-template
+- npm install
 
 ### 本项目创建过程中添加所需的依赖（直接使用本项目时不需要执行以下命令）
-npm install vue-router@4 pinia pinia-plugin-persistedstate axios
-npm install -D @vitejs/plugin-vue-jsx unplugin-auto-import unplugin-vue-components
-npm install vue-i18n@next @vueuse/core dayjs
-npm install -D sass
-npm install -D eslint eslint-plugin-vue @vue/eslint-config-typescript prettier eslint-config-prettier eslint-plugin-prettier
-npm install -D @types/node @types/axios @typescript-eslint/parser @typescript-eslint/eslint-plugin
+- npm install vue-router@4 pinia pinia-plugin-persistedstate axios
+- npm install -D @vitejs/plugin-vue-jsx unplugin-auto-import unplugin-vue-components
+- npm install vue-i18n@next @vueuse/core dayjs
+- pm install -D sass
+- npm install -D eslint eslint-plugin-vue @vue/eslint-config-typescript prettier eslint-config-prettier eslint-plugin-prettier
+- npm install -D @types/node @types/axios @typescript-eslint/parser @typescript-eslint/eslint-plugin
+- npm i -D commitizen cz-customizable
 
 ## 项目包含功能：
 - Vue 3 + TypeScript 支持
