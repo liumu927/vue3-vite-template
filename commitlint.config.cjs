@@ -1,23 +1,46 @@
+// commitlint.config.cjs
+
+const types = require('./.cz-config.cjs').types;
+
 module.exports = {
     extends: ['@commitlint/config-conventional'],
-    rules: {
-      'type-enum': [
-        2,
-        'always',
-        [
-          'feat', // 新增功能
-          'fix', // 修复缺陷
-          'docs', // 文档变更
-          'style', // 代码格式（不影响功能，例如空格、分号等格式修正）
-          'refactor', // 代码重构（不包括 bug 修复、功能新增）
-          'perf', // 性能优化
-          'test', // 添加疏漏测试或已有测试改动
-          'build', // 构建流程、外部依赖变更（如升级 npm 包、修改 webpack 配置等）
-          'ci', // 修改 CI 配置、脚本
-          'revert', // 回滚 commit
-          'chore' // 对构建过程或辅助工具和库的更改（不影响源文件、测试用例）
-        ]
-      ],
-      'subject-case': [0] // subject大小写不做校验
-    }
-  }
+    // rules: {
+    //     'type-enum': [
+    //         2,
+    //         'always',
+    //         types.map((type)=>type.value),
+    //         // [
+    //         //     // 编译相关的修改，例如发布版本，对项目构建或者依赖的改动
+    //         //     'build',
+    //         //     // 新功能(feature)
+    //         //     'feat',
+    //         //     // 修复bug
+    //         //     'fix',
+    //         //     // 更新某功能
+    //         //     'update',
+    //         //     // 重构
+    //         //     'refactor',
+    //         //     // 文档
+    //         //     'docs',
+    //         //     // 构建过程或者辅助工具的变动,如增加依赖库等
+    //         //     'chore',
+    //         //     // 不影响代码运行的变动
+    //         //     'style',
+    //         //     // 撤销commit,回滚到上一个版本
+    //         //     'revert',
+    //         //     // 性能优化
+    //         //     'perf',
+    //         //     // 测试(单元,集成测试)
+    //         //     'test',
+    //         // ],
+    //     ],
+    //     'type-case': [0],
+    //     'type-empty': [0],
+    //     'scope-empty': [0],
+    //     'scope-case': [0],
+    //     'subject-full-stop': [0, 'never'],
+    //     'subject-case': [0, 'never'],
+    //     'header-max-length': [0, 'always', 74],
+    // },
+};
+
