@@ -87,3 +87,33 @@ vue3-vite-template/
 - 常用 Vue 生态系统库（vue-i18n@next @vueuse/core dayjs）
 - 基础布局组件
 - 更新的 npm scripts （package.json）
+
+## 限制使用原始git提交方式：
+- 在项目根目录下运行以下命令安装 husky：
+> npm install husky --save-dev
+
+- 运行以下命令启用 husky：
+> npx husky install
+这会在项目根目录下创建一个 .husky 文件夹，用于存放 Git 钩子脚本。
+
+- 运行以下命令创建一个 pre-commit 钩子脚本：
+> npx husky add .husky/pre-commit "npm run commit-validate" (Husky v8 版本开始，husky add 命令已被弃用)
+这里的 commit-validate 是一个自定义的脚本，用于检查提交信息是否符合规范。
+
+- (新) 手动创建一个 pre - commit 脚本文件
+
+- 在 package.json 中添加一个 commit-validate 脚本，用于验证提交信息
+```
+{
+    "scripts": {
+        // ... 其他脚本 ...
+        "commit - validate": "commitlint --edit $1"
+    },
+    // ... 其他配置 ...
+}
+```
+
+- 安装 @commitlint/config-conventional 和 @commitlint/cli 验证提交信息：
+> npm install --save-dev @commitlint/config-conventional @commitlint/cli
+
+- 在项目根目录下创建一个 commitlint.config.cjs 文件，配置验证规则

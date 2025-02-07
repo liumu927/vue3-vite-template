@@ -1,3 +1,5 @@
+// 配置 commitizen 工具的文件
+
 module.exports = {
 	// 可选类型
 	types: [
@@ -19,6 +21,10 @@ module.exports = {
 			value: 'build',
 			name: 'build: 影响构建系统或外部依赖项的更改(如:webpack、npm)',
 		},
+		{ value: 'merge', name: 'merge:合并代码' },
+		{ value: 'ci', name: 'ci: 持续集成' },
+		{ value: 'release', name: 'release: 发布新版本' },
+		{ value: 'other', name: 'other: 其他改动，比如构建流程, 依赖管理' }
 	],
 	// 交互式消息提示步骤
 	messages: {
