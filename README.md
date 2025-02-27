@@ -9,7 +9,7 @@
 
 ## 项目基础结构树：
 ```
-vue3-vite-template/
+dynamothermal-system/
 ├── .env.dev # 开发环境配置文件
 ├── .env.prod # 生产环境配置文件
 ├── .eslintrc.js # ESLint 配置文件
@@ -58,8 +58,8 @@ vue3-vite-template/
 
 ## 项目创建流程：
 ### 创建一个基于TypeScript的Vue 3项目
-- npm create vite@latest vue3-vite-template -- --template vue-ts
-- cd vue3-vite-template
+- npm create vite@latest dynamothermal-system -- --template vue-ts
+- cd dynamothermal-system
 - npm install
 
 ### 本项目创建过程中添加所需的依赖（直接使用本项目时不需要执行以下命令）
