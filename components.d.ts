@@ -7,8 +7,27 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    About: typeof import('./src/views/About.vue')['default']
+    AButton: typeof import('ant-design-vue/es')['Button']
+    ACard: typeof import('ant-design-vue/es')['Card']
+    App: typeof import('./src/App.vue')['default']
+    Bezer: typeof import('./src/types/bezer.ts')['default']
+    BezierKonva: typeof import('./src/components/BezierKonva.vue')['default']
+    ControlTabs: typeof import('./src/components/ControlTabs.vue')['default']
+    Counter: typeof import('./src/store/counter.ts')['default']
+    DefaultLayout: typeof import('./src/layouts/DefaultLayout.vue')['default']
+    Home: typeof import('./src/views/MainPage.vue')['default']
+    Main: typeof import('./src/main.ts')['default']
+    MatrixShow: typeof import('./src/components/MatrixShow.vue')['default']
+    Request: typeof import('./src/service/request/index.ts')['default']
+    Router: typeof import('./src/router/index.ts')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Service: typeof import('./src/service/index.ts')['default']
+    ServiceApi: typeof import('./src/service/api/service.ts')['default']
+    Store: typeof import('./src/store/index.ts')['default']
+    Test: typeof import('./src/views/Test.vue')['default']
+    Types: typeof import('./src/service/request/types.ts')['default']
+    'ViteEnv.d': typeof import('./src/vite-env.d.ts')['default']
   }
 }

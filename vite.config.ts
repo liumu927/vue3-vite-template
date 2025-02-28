@@ -4,6 +4,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import path from 'path'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vite.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -23,12 +24,21 @@ export default defineConfig(({ command, mode }) => {
       vue(),
       vueJsx(),
       AutoImport({
+        dirs: ['src'], // 指定需要自动导入的库目录
         imports: ['vue', 'vue-router', 'pinia'], // 指定需要自动导入的库和函数
+        resolvers: [AntDesignVueResolver()], // 自动导入ant-design-vue的组件和函数（处理JS/TS API自动导入（如 message、notification 等））
+        dts: 'auto-imports.d.ts', // 配置文件生成位置
       }),
       Components({
         dirs: ['src/components'], // 指定需要自动导入的组件目录
         extensions: ['vue', 'ts'], // 指定需要自动导入的组件文件类型
         dts: 'components.d.ts', // 配置文件生成位置
+        resolvers: [
+          AntDesignVueResolver({
+            importStyle: false,
+            resolveIcons: false,
+          }),
+        ], // 新增 antd 组件自动导入（处理组件自动导入（如 Button、Table 等））
       }),
     ],
     server: {

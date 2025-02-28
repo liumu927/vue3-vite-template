@@ -11,5 +11,11 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "./auto-imports.d.ts", // 需要声明自动导入的文件，否则自动导入不生效
+    "./components.d.ts"
+  ]
 }
