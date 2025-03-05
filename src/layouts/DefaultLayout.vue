@@ -1,7 +1,7 @@
 <template>
     <div class="default-layout">
         <header>
-            <h2>力热原型系统</h2>
+            <h2>vue3+vite 基础项目框架</h2>
             <ControlTabs/>
         </header>
         <main>
