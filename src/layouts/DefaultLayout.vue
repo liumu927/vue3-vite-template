@@ -2,7 +2,6 @@
     <div class="default-layout">
         <header>
             <h2>vue3+vite 基础项目框架</h2>
-            <ControlTabs/>
         </header>
         <main>
             <!-- 二级路由入口 -->
