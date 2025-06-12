@@ -1,4 +1,4 @@
-# Vue 3 + TypeScript + Vite
+# Vue 3 + TypeScript + Vite 项目模板
 
 ## 项目启动：
 ### npm install
@@ -7,48 +7,45 @@
 
 ### npm run build 
 
+## 技术栈：
+- Vue 3.5.13
+- TypeScript 5.7.2
+- Vite 6.1.0
+- Vue Router 4.5.0
+- Pinia 2.3.1 (带持久化状态插件)
+- Ant Design Vue 4.2.6
+- Axios 1.7.9
+- VueUse 12.5.0
+- Vue I18n 11.0.0-rc.1
+- Sass 1.84.0
+- Dayjs 1.11.13
+
 ## 项目基础结构树：
 ```
-dynamothermal-system/
-├── .env.dev # 开发环境配置文件
-├── .env.prod # 生产环境配置文件
+vue3-ts-vite/
 ├── .eslintrc.js # ESLint 配置文件
 ├── .gitignore # Git 忽略文件列表
+├── .husky/ # Git钩子配置文件夹
 ├── .prettierrc # Prettier 配置文件
 ├── .vscode/ # VSCode 配置文件夹
+├── .cz-config.cjs # Commitizen自定义配置
 ├── README.md # 项目说明文档
 ├── auto-imports.d.ts # 自动导入声明文件
+├── commitlint.config.cjs # Commit规范配置
+├── components.d.ts # 组件类型声明文件
 ├── index.html # 项目入口 HTML 文件
 ├── package.json # 项目依赖和脚本配置文件
 ├── public/ # 公共资源文件夹
 ├── src/ # 源代码文件夹
 │   ├── App.vue # 根组件
 │   ├── assets/ # 静态资源文件夹
-│   ├── components/ # 组件文件夹
-│   ├── components.d.ts # 组件类型声明文件
-│   ├── composables/ # 组合式函数文件夹
+│   ├── http/ # HTTP请求模块
 │   ├── layouts/ # 布局组件文件夹
-│   │   ├── DefaultLayout.vue # 默认布局组件
 │   ├── main.ts # 项目入口文件
 │   ├── router/ # 路由配置文件夹
-│   │   ├── index.ts # 路由配置文件
-│   ├── service/ # 服务模块文件夹
-│   │   ├── api/ # API 模块文件夹
-│   │   │   ├── service.ts # 基础 API 服务文件
-│   │   ├── index.ts # 服务模块入口文件
-│   │   ├── request/ # 请求模块文件夹
-│   │   │   ├── index.ts # 请求模块入口文件
-│   │   │   ├── types.ts # 请求类型定义文件
-│   ├── store/ # 状态管理文件夹
-│   │   ├── counter.ts # 计数器状态管理文件
-│   │   ├── index.ts # 状态管理入口文件
+│   ├── store/ # 状态管理文件夹（Pinia）
 │   ├── style.css # 全局样式文件
-│   ├── types/ # 类型定义文件夹
-│   ├── utils/ # 工具函数文件夹
 │   ├── views/ # 视图组件文件夹
-│   │   ├── About.vue # 关于页面组件
-│   │   ├── Home.vue # 首页组件
-│   │   ├── Test.vue # 测试页面组件
 │   ├── vite-env.d.ts # Vite 环境声明文件
 ├── tsconfig.app.json # TypeScript 应用配置文件
 ├── tsconfig.json # TypeScript 配置文件
@@ -56,64 +53,43 @@ dynamothermal-system/
 └── vite.config.ts # Vite 配置文件
 ```
 
-## 项目创建流程：
-### 创建一个基于TypeScript的Vue 3项目
-- npm create vite@latest dynamothermal-system -- --template vue-ts
-- cd dynamothermal-system
-- npm install
+## 项目特性：
+- **组件自动导入**：使用 unplugin-auto-import 和 unplugin-vue-components 实现组件和API的自动导入
+- **UI组件库**：集成 Ant Design Vue 4.x 组件库
+- **状态管理**：使用 Pinia 进行状态管理，并配置了持久化插件
+- **HTTP请求**：封装了Axios，支持请求和响应拦截
+- **TypeScript支持**：完整的TypeScript类型支持
+- **路由管理**：使用Vue Router进行路由管理
+- **代码规范**：集成ESLint和Prettier保证代码质量和一致性
+- **国际化**：集成Vue I18n支持多语言
+- **Git规范**：使用Husky、Commitlint和Commitizen规范Git提交
+- **构建优化**：使用Vite提供快速的开发和构建体验
+- **CSS预处理**：支持Sass预处理器
+- **工具函数**：集成VueUse提供常用的组合式函数
+- **日期处理**：集成Dayjs处理日期时间
 
-### 本项目创建过程中添加所需的依赖（直接使用本项目时不需要执行以下命令）
-- npm install vue-router@4 pinia pinia-plugin-persistedstate axios
-- npm install -D @vitejs/plugin-vue-jsx unplugin-auto-import unplugin-vue-components
-- npm install vue-i18n@next @vueuse/core dayjs
-- pm install -D sass
-- npm install -D eslint eslint-plugin-vue @vue/eslint-config-typescript prettier eslint-config-prettier eslint-plugin-prettier
-- npm install -D @types/node @types/axios @typescript-eslint/parser @typescript-eslint/eslint-plugin
-- npm i -D commitizen cz-customizable
+## 开发脚本：
+- `npm run dev` - 启动开发服务器（开发环境）
+- `npm run build` - 构建生产版本
+- `npm run preview` - 本地预览生产构建
+- `npm run lint` - 运行ESLint检查代码
+- `npm run format` - 使用Prettier格式化代码
+- `npm run commit` - 使用Commitizen提交代码（规范提交信息）
 
-## 项目包含功能：
-- Vue 3 + TypeScript 支持
-- Vue Router 用于页面路由
-- Pinia 用于状态管理,并配置了持久化
-- 自动导入插件 (组件和 API)
-- Axios 封装，包括请求和响应拦截器，API 请求封装
-- 反向代理配置
-- JSX 支持
-- @ 别名配置，方便导入
-- ESLint 和 Prettier 配置，保证代码质量和一致性
-- Sass 支持
-- 环境变量配置
-- 优化的 Vite 配置
-- 常用 Vue 生态系统库（vue-i18n@next @vueuse/core dayjs）
-- 基础布局组件
-- 更新的 npm scripts （package.json）
+## Vite配置特性：
+- 配置了`@`别名指向src目录
+- 配置了自动导入Vue、Vue Router和Pinia的API
+- 配置了自动导入Ant Design Vue组件
+- 配置了开发服务器代理，支持API请求转发
+- 支持JSX/TSX语法
 
-## 限制使用原始git提交方式：
-- 在项目根目录下运行以下命令安装 husky：
-> npm install husky --save-dev
+## Git提交规范：
+项目使用Commitizen、Commitlint和Husky来规范Git提交：
+- 使用`npm run commit`代替`git commit`
+- 提交信息需符合约定式提交规范
+- 提交前会自动运行Lint检查
 
-- 运行以下命令启用 husky：
-> npx husky install
-这会在项目根目录下创建一个 .husky 文件夹，用于存放 Git 钩子脚本。
-
-- 运行以下命令创建一个 pre-commit 钩子脚本：
-> npx husky add .husky/pre-commit "npm run commit-validate" (Husky v8 版本开始，husky add 命令已被弃用)
-这里的 commit-validate 是一个自定义的脚本，用于检查提交信息是否符合规范。
-
-- (新) 手动创建一个 pre - commit 脚本文件
-
-- 在 package.json 中添加一个 commit-validate 脚本，用于验证提交信息
-```
-{
-    "scripts": {
-        // ... 其他脚本 ...
-        "commit - validate": "commitlint --edit $1"
-    },
-    // ... 其他配置 ...
-}
-```
-
-- 安装 @commitlint/config-conventional 和 @commitlint/cli 验证提交信息：
-> npm install --save-dev @commitlint/config-conventional @commitlint/cli
-
-- 在项目根目录下创建一个 commitlint.config.cjs 文件，配置验证规则
+## 环境变量：
+可以在不同环境配置文件中设置环境变量：
+- 开发环境使用`--mode dev`
+- 生产环境使用`--mode prod`
