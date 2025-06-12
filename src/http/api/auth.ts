@@ -2,14 +2,7 @@
  * 用户相关API
  */
 
-import {
-  AuthResponse,
-  LoginParams,
-  RefreshTokenParams,
-  RefreshTokenResponse,
-  RegisterParams,
-  UserInfo,
-} from '../types/auth'
+import { AuthResponse, LoginParams, RegisterParams } from '../types/auth'
 import { http } from '../instance'
 import type { UnwrappedResponse } from '../types/response'
 

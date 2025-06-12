@@ -16,7 +16,9 @@ declare module 'axios' {
 }
 
 // 修改后的RequestConfig可以直接继承
-export interface RequestConfig extends AxiosRequestConfig {}
+export interface RequestConfig extends AxiosRequestConfig {
+  serviceId?: string
+}
 
 // 自定义响应配置
 export interface ResponseConfig extends AxiosResponse {

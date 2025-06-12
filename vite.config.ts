@@ -28,6 +28,12 @@ export default defineConfig(({ command, mode }) => {
         imports: ['vue', 'vue-router', 'pinia'], // 指定需要自动导入的库和函数
         resolvers: [AntDesignVueResolver()], // 自动导入ant-design-vue的组件和函数（处理JS/TS API自动导入（如 message、notification 等））
         dts: 'auto-imports.d.ts', // 配置文件生成位置
+        // ESLint 报错处理
+        eslintrc: {
+          enabled: true,
+          filepath: './.eslintrc-auto-import.json',
+          globalsPropValue: true,
+        },
       }),
       Components({
         dirs: ['src/components'], // 指定需要自动导入的组件目录
@@ -49,7 +55,7 @@ export default defineConfig(({ command, mode }) => {
           // 使用环境变量
           target: env.VITE_APP_BASE_URL,
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
+          rewrite: path => path.replace(/^\/api/, ''),
         },
       },
     },
