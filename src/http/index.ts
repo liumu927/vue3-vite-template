@@ -5,4 +5,4 @@
 export { http } from './instance'
 export * from './api/auth'
 export * from './types/http'
-export * from './types/response' 
+export * from './types/response'

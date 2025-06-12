@@ -1,4 +1,7 @@
-// 配置 commitizen 工具的文件
+/**
+ * @file 配置 commitizen 工具的文件
+ * @description 创建规范的提交信息
+ */
 
 module.exports = {
 	// 可选类型

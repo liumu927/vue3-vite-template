@@ -18,7 +18,7 @@ export function mergeConfig(config: RequestConfig): RequestConfig {
     ...serviceConfig,
     headers: {
       ...serviceConfig.headers,
-      ...config.headers
-    }
+      ...config.headers,
+    },
   }
-} 
+}

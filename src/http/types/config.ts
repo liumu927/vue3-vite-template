@@ -15,4 +15,4 @@ export interface GlobalConfig {
   default: ServiceConfig
   // 其他服务配置
   [key: string]: ServiceConfig
-} 
+}

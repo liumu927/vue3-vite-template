@@ -1,46 +1,45 @@
-// commitlint.config.cjs
+/**
+ * @file commitlint配置文件
+ * @description 验证提交信息是否符合规范
+ */
 
 const types = require('./.cz-config.cjs').types;
+const scopes = require('./.cz-config.cjs').scopes || [];
+const subjectLimit = require('./.cz-config.cjs').subjectLimit || 100;
 
 module.exports = {
     extends: ['@commitlint/config-conventional'],
-    // rules: {
-    //     'type-enum': [
-    //         2,
-    //         'always',
-    //         types.map((type)=>type.value),
-    //         // [
-    //         //     // 编译相关的修改，例如发布版本，对项目构建或者依赖的改动
-    //         //     'build',
-    //         //     // 新功能(feature)
-    //         //     'feat',
-    //         //     // 修复bug
-    //         //     'fix',
-    //         //     // 更新某功能
-    //         //     'update',
-    //         //     // 重构
-    //         //     'refactor',
-    //         //     // 文档
-    //         //     'docs',
-    //         //     // 构建过程或者辅助工具的变动,如增加依赖库等
-    //         //     'chore',
-    //         //     // 不影响代码运行的变动
-    //         //     'style',
-    //         //     // 撤销commit,回滚到上一个版本
-    //         //     'revert',
-    //         //     // 性能优化
-    //         //     'perf',
-    //         //     // 测试(单元,集成测试)
-    //         //     'test',
-    //         // ],
-    //     ],
-    //     'type-case': [0],
-    //     'type-empty': [0],
-    //     'scope-empty': [0],
-    //     'scope-case': [0],
-    //     'subject-full-stop': [0, 'never'],
-    //     'subject-case': [0, 'never'],
-    //     'header-max-length': [0, 'always', 74],
-    // },
+    rules: {
+        // 类型枚举：0表示禁用规则，1表示警告，2表示错误
+        'type-enum': [
+            2, // 错误级别
+            'always',
+            types.map((type) => type.value),
+        ],
+        // 类型大小写
+        'type-case': [2, 'always', 'lower-case'],
+        // 类型不能为空
+        'type-empty': [2, 'never'],
+        // 作用域可以为空
+        'scope-empty': [0, 'never'],
+        // 作用域大小写
+        'scope-case': [0],
+        // 作用域枚举 - 如果配置了scopes，则使用配置的作用域，否则允许自定义
+        'scope-enum': scopes.length > 0 ? [1, 'always', scopes] : [0],
+        // 主题不能为空
+        'subject-empty': [2, 'never'],
+        // 主题不以.结尾
+        'subject-full-stop': [2, 'never', '.'],
+        // 主题大小写，0表示不限制
+        'subject-case': [0],
+        // 主题长度
+        'subject-max-length': [2, 'always', subjectLimit],
+        // 头部最大长度
+        'header-max-length': [2, 'always', 100],
+        // body开始不能有空行
+        'body-leading-blank': [1, 'always'],
+        // footer开始不能有空行
+        'footer-leading-blank': [1, 'always'],
+    },
 };
 

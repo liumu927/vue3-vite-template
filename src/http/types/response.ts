@@ -18,4 +18,4 @@ export interface PageData<T = any> {
   total: number
   page: number
   pageSize: number
-} 
+}

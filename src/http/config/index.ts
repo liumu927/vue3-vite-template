@@ -6,10 +6,10 @@ import type { GlobalConfig } from '../types/config'
 
 export const config: GlobalConfig = {
   default: {
-    baseURL: "/api",
+    baseURL: '/api',
     timeout: 10000,
     headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-} 
+      'Content-Type': 'application/json',
+    },
+  },
+}

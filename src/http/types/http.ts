@@ -27,4 +27,4 @@ export interface ResponseConfig extends AxiosResponse {
 export interface RequestError extends Error {
   config: RequestConfig
   response?: ResponseConfig
-} 
+}
