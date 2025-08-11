@@ -1,7 +1,6 @@
 /**
  * HTTP相关类型定义
  */
-
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import 'axios'
 
@@ -15,17 +14,23 @@ declare module 'axios' {
   }
 }
 
-// 修改后的RequestConfig可以直接继承
+/**
+ * 增强后的RequestConfig类可以直接通过extends继承
+ */
 export interface RequestConfig extends AxiosRequestConfig {
-  serviceId?: string
+  customConfig: RequestConfig
 }
 
-// 自定义响应配置
+/**
+ * 自定义响应配置
+ */
 export interface ResponseConfig extends AxiosResponse {
   customConfig: RequestConfig
 }
 
-// 请求错误类型
+/**
+ * 请求错误类型
+ */
 export interface RequestError extends Error {
   config: RequestConfig
   response?: ResponseConfig

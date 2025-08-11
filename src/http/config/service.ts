@@ -7,7 +7,9 @@ import type { RequestConfig } from '../types/http'
 import type { ServiceConfig } from '../types/config'
 
 export function getServiceConfig(serviceId?: string): ServiceConfig {
-  if (!serviceId) return config.default
+  if (!serviceId) {
+    return config.default
+  }
   return config[serviceId] || config.default
 }
 

@@ -13,6 +13,12 @@
 - 自定义配置：支持全局配置和单次请求级别的配置覆盖
 - 即插即用：独立模块设计，可通过简单配置迁移到其他项目
 
+## TODO
+- 多层拦截：支持全局、实例级和单个请求级别的拦截器
+- 请求缓存：支持通过唯一标识进行缓存，防止重复请求
+- 请求取消：支持取消已经发送但未完成的请求
+- 批量请求：支持同时发送多个请求，并在所有请求完成后回调
+
 ## 安装与配置
 
 ```bash
@@ -48,7 +54,7 @@ export const config: GlobalConfig = {
 server: {
   proxy: {
     '/api': {
-      target: env.VITE_API_BASE_URL,
+      target: 'http://localhost:3000', // 你的后端服务地址
       changeOrigin: true,
     },
   },
@@ -188,9 +194,10 @@ VITE_ORDER_API_BASE_URL=http://localhost:3002
 // vite.config.ts
 server: {
   proxy: {
-    '/api': {
+    '/api/': {
       target: env.VITE_API_BASE_URL,
       changeOrigin: true,
+      rewrite: (path) => path.replace(/^\/api/, '/api')
     },
     // 用户服务代理
     'userApi/': {
